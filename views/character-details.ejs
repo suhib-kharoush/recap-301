@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <%char.forEach(potter=>{%>
+        <main>
+            <div class="card">
+                <p>
+                    <%=potter.name%>
+                </p>
+                <img src="<%=potter.image%>">
+                <p>
+                    <%=potter.house%>
+                </p>
+                <p>
+                    <%=potter.patronus%>
+                </p>
+                <p>
+                    <%=potter.is_alive%>
+                </p>
+            </div>
+            <form action="/character/<%=potter.id%>?_method=PUT" method="POST">
+                <input type="text" name="name" value="<%=potter.name%>">
+                <input type="text" name="image" value="<%=potter.image%>">
+                <input type="text" name="house" value="<%=potter.house%>">
+                <input type="text" name="patronus" value="<%=potter.patronus%>">
+                <input type="text" name="is_alive" value="<%=potter.is_alive%>">
+                <button type="submit">update character</button>
+            </form>
+            <form action="/character/<%=potter.id%>?_method=DELETE" method="POST">
+                <button type="submit">delete character</button>
+            </form>
+
+            <%})%>
+        </main>
+</body>
+
+</html>
